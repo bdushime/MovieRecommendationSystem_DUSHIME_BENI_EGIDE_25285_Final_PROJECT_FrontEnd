@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 // import { Chart } from 'react-chartjs-2';
-import { 
-  AlertCircle, 
-  CheckCircle2, 
-  Film, 
-  Users, 
-  Activity 
+import {
+  AlertCircle,
+  CheckCircle2,
+  Film,
+  Users,
+  Activity,
+  ArrowLeft
 } from 'lucide-react';
 import axios from 'axios';
 
@@ -138,32 +139,38 @@ const AdminDashboard = () => {
       )}
 
       {/* Header */}
-      <div className="mb-8 text-center">
-        <h1 className="text-3xl font-bold text-red-500 mb-2">
-          Admin Dashboard
-        </h1>
-      </div>
+        <div className="flex justify-between items-center mb-8 text-center">
+            <h1 className="flex justify-center items-center text-3xl font-bold text-red-500 mb-2">
+                Admin Dashboard
+            </h1>
+            <button
+                onClick={() => window.location.href = '/login'}
+                className="flex items-center gap-2 px-6 py-3 rounded bg-[#ff4757] text-white hover:bg-[#ff6b81] transition-all duration-300"
+            >
+                <ArrowLeft size={20}/> Back to Login
+            </button>
+        </div>
 
-      {/* Create Movie Form */}
-      <div className="bg-gray-800 p-6 rounded-lg mb-8">
-        <h2 className="text-xl font-bold mb-4 flex items-center">
-          <Film className="mr-2" />
-          Create New Movie
-        </h2>
-        <form onSubmit={handleCreateMovie} className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* Create Movie Form */}
+        <div className="bg-gray-800 p-6 rounded-lg mb-8">
+            <h2 className="text-xl font-bold mb-4 flex items-center">
+                <Film className="mr-2"/>
+                Create New Movie
+            </h2>
+            <form onSubmit={handleCreateMovie} className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <input
-              type="text"
-              name="name"
-              placeholder="Movie Name"
-              className="w-full p-2 bg-gray-700 rounded"
-              required
+                type="text"
+                name="name"
+                placeholder="Movie Name"
+                className="w-full p-2 bg-gray-700 rounded"
+                required
             />
             <input
-              type="file"
-              name="imageFile"
-              className="w-full p-2 bg-gray-700 rounded"
-              required
+                type="file"
+                name="imageFile"
+                className="w-full p-2 bg-gray-700 rounded"
+                required
             />
           </div>
           <textarea
