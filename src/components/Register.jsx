@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import axios from 'axios';
 import "../styles/Register.css";
 import i18next from "i18next";
@@ -29,6 +29,7 @@ const Register = () => {
             setSuccess('Account created successfully!');
             setError('');
         } catch (err) {
+            console.error(err)
             setError('Failed to create account. Please try again.');
             setSuccess('');
         }

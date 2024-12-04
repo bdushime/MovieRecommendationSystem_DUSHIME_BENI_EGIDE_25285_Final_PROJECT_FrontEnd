@@ -3,8 +3,8 @@ import AdminPage from './components/AdminPage'
 import Login from './components/login'
 import Register from './components/Register'
 import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
-import UsersPage from './components/UsersPage'
 import i18next from "i18next";
+import PersonalPage from "./components/personalPage.jsx";
 
 function App() {
     const lang = new URLSearchParams(window.location.search).get("lang");
@@ -19,7 +19,7 @@ function App() {
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/register" element={<Register/>}/>
                 <Route path="/admin" element={<AdminPage/>}/>
-                <Route path="/personal-page" element={<UsersPage/>}/>
+                <Route path="/personal-page" element={<PersonalPage/>}/>
             </Routes>
         </BrowserRouter>
         // </MovieProvider>

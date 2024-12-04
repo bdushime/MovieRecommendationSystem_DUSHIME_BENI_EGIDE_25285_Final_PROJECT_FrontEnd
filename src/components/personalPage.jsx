@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Eye, Download, ArrowLeft } from 'lucide-react';
 import axios from 'axios';
 
@@ -82,11 +82,9 @@ const MovieDashboard = ({ userLogin, userRole = [] }) => {
         >
           <ArrowLeft size={20}/> Back to Login
         </button>
-        {userRole.includes('ADMIN') && (
-            <ul className="mt-6">
+        {userRole.includes('ADMIN') && (<ul className="mt-6">
               <li><a href="/admin/users" className="text-[#ff4757] hover:text-[#ff6b81]">Manage Users</a></li>
-            </ul>
-        )}
+            </ul>)}
       </div>
 
       {/* Movies Grid */}
@@ -222,7 +220,7 @@ const MovieDashboard = ({ userLogin, userRole = [] }) => {
                 <a 
                   href={`/movie/details/${movie.id}`}
                   target='_blank'
-                  className="block bg-[#ff4757] text-white px-4 py-2 rounded flex items-center justify-center gap-2 hover:bg-[#ff6b81] transition-duration-300"
+                  className="bg-[#ff4757] text-white px-4 py-2 rounded flex items-center justify-center gap-2 hover:bg-[#ff6b81] transition-duration-300"
                 >
                   <Eye size={16} /> View
                 </a>
