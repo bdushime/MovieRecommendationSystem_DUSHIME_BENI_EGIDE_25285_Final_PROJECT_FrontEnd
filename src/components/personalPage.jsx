@@ -76,16 +76,16 @@ const MovieDashboard = ({ userLogin, userRole = [] }) => {
       <div className="bg-[#2f3640] text-center py-12 px-8 border-b-4 border-[#ff4757]">
         <h1 className="text-[#ff4757] text-5xl mb-2">Welcome, {userLogin}!</h1>
         <p className="text-lg">Your role: {userRole.join(', ')}</p>
-        <button 
-          onClick={() => window.location.href = '/login'}
-          className="mt-4 bg-[#ff4757] text-white px-6 py-3 rounded flex items-center gap-2 mx-auto hover:bg-[#ff6b81] transition-all duration-300"
+        <button
+            onClick={() => window.location.href = '/login'}
+            className="mt-4 bg-[#ff4757] text-white px-6 py-3 rounded flex items-center gap-2 mx-auto hover:bg-[#ff6b81] transition-all duration-300"
         >
-          <ArrowLeft size={20} /> Back to Login
+          <ArrowLeft size={20}/> Back to Login
         </button>
         {userRole.includes('ADMIN') && (
-          <ul className="mt-6">
-            <li><a href="/admin/users" className="text-[#ff4757] hover:text-[#ff6b81]">Manage Users</a></li>
-          </ul>
+            <ul className="mt-6">
+              <li><a href="/admin/users" className="text-[#ff4757] hover:text-[#ff6b81]">Manage Users</a></li>
+            </ul>
         )}
       </div>
 
