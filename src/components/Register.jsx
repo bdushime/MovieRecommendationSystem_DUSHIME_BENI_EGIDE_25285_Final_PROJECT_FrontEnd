@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import "../styles/Register.css";// You can extract the CSS into a separate file
+import "../styles/Register.css";
+import i18next from "i18next";
+// You can extract the CSS into a separate file
 
 const Register = () => {
     const [formData, setFormData] = useState({
@@ -39,15 +41,15 @@ const Register = () => {
             </div>
 
             <div className="header">
-                <h1>Welcome to Beniflix</h1>
-                <p>Create an account to get started</p>
+                <h1>{i18next.t("register.welcome")}</h1>
+                <p>{i18next.t("register.sub")}</p>
             </div>
 
             {error && <div className="error">{error}</div>}
             {success && <div className="success">{success}</div>}
 
             <form onSubmit={handleSubmit} className="register-form">
-                <h2>Create an Account</h2>
+                <h2>{i18next.t("register.helper")}</h2>
 
                 <div className="field">
                     <span className="user"><i className="fas fa-user"></i></span>
@@ -86,7 +88,7 @@ const Register = () => {
                 </div>
 
                 <div className="field">
-                    <label htmlFor="role">Select Role:</label>
+                    {/*<label htmlFor="role">Select Role:</label>*/}
                     <select
                         id="role"
                         name="role"
@@ -100,18 +102,18 @@ const Register = () => {
                     </select>
                 </div>
 
-                <button type="submit" className="submit">Sign Up</button>
+                <button type="submit" className="submit">{i18next.t("register.primary")}</button>
 
-                <span className="login-alt">Or Sign Up with</span>
-                <div className="socials">
-                    <div className="social" id="instagram"><i className="fab fa-instagram"></i></div>
-                    <div className="social" id="twitter"><i className="fab fa-twitter"></i></div>
-                    <div className="social" id="google"><i className="fab fa-google"></i></div>
-                </div>
+                {/*<span className="login-alt">Or Sign Up with</span>*/}
+                {/*<div className="socials">*/}
+                {/*    <div className="social" id="instagram"><i className="fab fa-instagram"></i></div>*/}
+                {/*    <div className="social" id="twitter"><i className="fab fa-twitter"></i></div>*/}
+                {/*    <div className="social" id="google"><i className="fab fa-google"></i></div>*/}
+                {/*</div>*/}
 
                 <div className="signup">
                     <p>
-                        Already have an account? <a href="/login">Login</a>
+                        {i18next.t("register.question")} <a href="/login">{i18next.t("register.secondary")}</a>
                     </p>
                 </div>
             </form>
