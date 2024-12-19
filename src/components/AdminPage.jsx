@@ -26,7 +26,7 @@ const AdminDashboard = () => {
 
     const fetchData = async () => {
         try {
-            const movies_users_logsRes = await axios.get("http://localhost:8080/admin_page");
+            const movies_users_logsRes = await axios.get("https://beniflix.onrender.com/admin_page");
             console.log(movies_users_logsRes.data.data.movies.sort((a, b) => a.name.localeCompare(b.name)));
             setMovies(movies_users_logsRes.data.data.movies.sort((a, b) => a.name.localeCompare(b.name)));
             setUsers(movies_users_logsRes.data.data.users);
@@ -41,7 +41,7 @@ const AdminDashboard = () => {
         e.preventDefault();
         const formData = new FormData(e.target);
         try {
-            const response = await axios.post("http://localhost:8080/admin_page", formData);
+            const response = await axios.post("https://beniflix.onrender.com/admin_page", formData);
             if (response.data.success) {
                 setSuccessMessage("Movie created successfully!");
                 fetchData();
@@ -58,7 +58,7 @@ const AdminDashboard = () => {
         e.preventDefault();
         const formData = new FormData(e.target);
         try {
-            const response = await fetch(`http://localhost:8080/movies/update/${movieId}`, {
+            const response = await fetch(`https://beniflix.onrender.com/movies/update/${movieId}`, {
                 method: "PUT",
                 body: formData,
             });
@@ -77,7 +77,7 @@ const AdminDashboard = () => {
     const handleDeleteMovie = async (movieId) => {
         if (!window.confirm("Are you sure you want to delete this movie?")) return;
         try {
-            const response = await fetch(`http://localhost:8080/movies/delete/${movieId}`, {
+            const response = await fetch(`https://beniflix.onrender.com/movies/delete/${movieId}`, {
                 method: "DELETE",
             });
             if (response.ok) {
@@ -93,7 +93,7 @@ const AdminDashboard = () => {
 
     const handleToggleRecommendation = async (movieId) => {
         try {
-            const response = await fetch(`http://localhost:8080/movies/toggleRecommendation/${movieId}`, {
+            const response = await fetch(`https://beniflix.onrender.com/movies/toggleRecommendation/${movieId}`, {
                 method: "POST",
             });
             console.log(response)
@@ -112,7 +112,7 @@ const AdminDashboard = () => {
         e.preventDefault();
         const searchId = e.target.elements.id.value;
         try {
-            const response = await axios.get(`http://localhost:8080/movies/search/${searchId}`);
+            const response = await axios.get(`https://beniflix.onrender.com/movies/search/${searchId}`);
             console.log(response);
             setSearchResult(response.data);
             setSearchError(null);

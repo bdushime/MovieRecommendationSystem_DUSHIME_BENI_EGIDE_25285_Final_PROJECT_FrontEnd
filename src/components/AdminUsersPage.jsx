@@ -7,7 +7,7 @@ const AdminUsersPage = () => {
 
     const fetchUsers = async () => {
         try {
-            const response = await axios.get("http://localhost:8080/admin_page");
+            const response = await axios.get("https://beniflix.onrender.com/admin_page");
             setUsers(response.data);
         } catch (error) {
             console.error("Error fetching users:", error);

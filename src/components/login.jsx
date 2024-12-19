@@ -17,7 +17,7 @@ function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8080/login', {
+            const response = await axios.post('https://beniflix.onrender.com/login', {
                 login: credentials.username,
                 email: '',
                 password: credentials.password,

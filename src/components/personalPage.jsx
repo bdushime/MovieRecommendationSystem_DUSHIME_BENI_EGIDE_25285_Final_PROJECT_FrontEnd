@@ -14,7 +14,7 @@ const MovieDashboard = ({ userLogin, userRole = [] }) => {
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const BASE_URL = "http://localhost:8080";
+  const BASE_URL = "https://beniflix.onrender.com";
 
   useEffect(() => {
     loadMovies();
@@ -29,7 +29,7 @@ const MovieDashboard = ({ userLogin, userRole = [] }) => {
   const loadMovies = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("http://localhost:8080/admin_page");
+      const response = await axios.get("https://beniflix.onrender.com/admin_page");
       const sortedMovies = response.data.data.movies.sort((a, b) => a.name.localeCompare(b.name));
       setMovies(sortedMovies);
       setRecommendedMovies(sortedMovies.filter(movie => movie.recommended));
@@ -147,7 +147,7 @@ const MovieDashboard = ({ userLogin, userRole = [] }) => {
                     View
                   </button>
                   <a 
-                    href={`http://localhost:8080/movies/${movie.id}/download`}
+                    href={`https://beniflix.onrender.com/movies/${movie.id}/download`}
                     className="flex-1 bg-[#2ed573] text-white px-4 py-2 rounded flex items-center justify-center gap-2 hover:opacity-80 transition-duration-300"
                   >
                     <Download size={16} />
