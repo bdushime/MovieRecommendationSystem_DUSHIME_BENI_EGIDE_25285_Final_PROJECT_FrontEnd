@@ -1,1 +1,10 @@
-/* /index.html 200
+export default defineConfig({
+    server: {
+      proxy: {
+        '/api': {
+          target: 'http://localhost:8080',
+          changeOrigin: true
+        }
+      }
+    }
+  })
