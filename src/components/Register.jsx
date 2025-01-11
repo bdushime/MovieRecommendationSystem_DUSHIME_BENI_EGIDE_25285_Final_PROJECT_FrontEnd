@@ -24,7 +24,7 @@ const Register = () => {
         e.preventDefault();
         try {
             console.log(formData);
-            const response = await axios.post('https://beniflix.onrender.com/register', formData);
+            const response = await axios.post('http://localhost:8080/register', formData);
             console.log('registered', response);
             setSuccess('Account created successfully!');
             setError('');
